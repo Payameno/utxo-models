@@ -21,6 +21,8 @@ class Transaction {
       if (totalInput < totalOutput) {
         throw new Error("Not enough balance to continue");
       }
+
+      this.inputUTXOs.forEach(UTXO => UTXO.spend())
   }
 }
 
