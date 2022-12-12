@@ -2,6 +2,7 @@ class Transaction {
   constructor(inputUTXOs, outputUTXOs) {
       this.inputUTXOs = inputUTXOs;
       this.outputUTXOs = outputUTXOs;
+      this.fee = 0;
   }
   execute() {
 
@@ -23,6 +24,8 @@ class Transaction {
       }
 
       this.inputUTXOs.forEach(UTXO => UTXO.spend())
+
+      this.fee = totalInput - totalOutput;
   }
 }
 
